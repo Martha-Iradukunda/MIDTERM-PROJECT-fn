@@ -1,0 +1,26 @@
+version: 2.1
+
+jobs:
+  codeclimate-test-coverage:
+    docker:
+      - image: node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Run Tests with Coverage
+          command: npm run test:coverage
+      - run:
+          name: Send Test Coverage to CodeClimate
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+            ./cc-test-reporter after-build --exit-code $?
+
+workflows:
+  build-and-test:
+    jobs:
+      - codeclimate-test-coverage
