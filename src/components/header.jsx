@@ -122,7 +122,7 @@ function Header() {
       >
         <img alt="logo" src={logo} />
         <span>
-          <span className="sec-color">B</span>-Mall
+          <span className="sec-color">R</span>wamagana Mall
         </span>
       </h2>
       <div className="header">

@@ -8,11 +8,11 @@ function Footer() {
       <h2 className="brand">
         <img alt="logo" src={logo} />
         <span>
-          <span className="sec-color">B</span>rogrammers Mall
+          <span className="sec-color">R</span>wamagana Mall
         </span>
       </h2>
       <article>
-        <p>Powered by Brogrammers © 2023</p>
+        <p>Powered by Martha Iradukunda © 2023</p>
         <Subscribe />
       </article>
     </footer>

@@ -83,7 +83,7 @@ function ChatIcon({ socket, room, user }) {
           </div>
           <div className="modal-content">
             <div className="modal-header">
-              <h2>Brogrammers Public Chat</h2>
+              <h2>Rwamagana Mall Public Chat</h2>
             </div>
             <div className="modal-body">
               {messages.map((message) => (

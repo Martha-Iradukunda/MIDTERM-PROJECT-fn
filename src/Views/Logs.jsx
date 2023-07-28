@@ -39,7 +39,7 @@ function LogsComponent() {
       <Links />
       <div className="content">
         <div className="upper">
-          <h2>B-Mall Activity Logs</h2>
+          <h2>Rwamagana Mall Activity Logs</h2>
         </div>
         <div className="table-wrapper">
           <table className="table">
