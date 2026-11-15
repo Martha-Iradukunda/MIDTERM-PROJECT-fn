@@ -138,8 +138,8 @@ export function Header() {
           </Link>
           <nav className="main-nav" aria-label="Main">
             <NavLink to="/" end>Home</NavLink>
-            <NavLink to="/products">Shop</NavLink>
-            <NavLink to="/products?deals=1">Deals</NavLink>
+            <NavLink to="/products" className={() => (loc.pathname === '/products' && !loc.search.includes('deals=1') ? 'active' : '')}>Shop</NavLink>
+            <NavLink to="/products?deals=1" className={() => (loc.pathname === '/products' && loc.search.includes('deals=1') ? 'active' : '')}>Deals</NavLink>
             <NavLink to="/contact">Contact</NavLink>
           </nav>
           <SearchBox className="desktop" />
