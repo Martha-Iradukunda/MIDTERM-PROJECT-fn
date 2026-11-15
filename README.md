@@ -2,7 +2,7 @@
 
 Online shop for Rwamagana and the whole of Rwanda: fashion, shoes & bags, electronics, home & kitchen, groceries, beauty and Rwandan crafts.
 
-**Live:** https://brogrammersmall.netlify.app
+**Live:** https://rwamagana-mall.netlify.app
 
 This repository is the shop that customers see (React 18 + Vite). The server and database code is in [MIDTERM-PROJECT-bn](https://github.com/Martha-Iradukunda/MIDTERM-PROJECT-bn). Netlify builds both into one website.
 
@@ -42,7 +42,7 @@ Netlify settings (Site configuration › Environment variables):
 |---|---|
 | `DATABASE_URL` | Neon Postgres connection string |
 | `ADMIN_EMAIL`, `ADMIN_PASSWORD` | the owner's admin login (setting a new password resets it once) |
-| `PUBLIC_URL` | `https://brogrammersmall.netlify.app` (used in email links) |
+| `PUBLIC_URL` | `https://rwamagana-mall.netlify.app` (used in email links) |
 
 A change to the server repo goes live at the next Netlify deploy. Push to this repo, or use "Trigger deploy" in Netlify.
 
@@ -66,6 +66,6 @@ The original project images are kept in `public/img`:
 
 The `.webp` files are faster copies of the same pictures.
 
-The starting product photos in `public/catalogue` come from Wikimedia Commons under free licences. Their authors are listed on the [Photo credits](https://brogrammersmall.netlify.app/credits) page.
+The starting product photos in `public/catalogue` come from Wikimedia Commons under free licences. Their authors are listed on the [Photo credits](https://rwamagana-mall.netlify.app/credits) page.
 
 © Rwamagana Mall · Powered by Martha Iradukunda
