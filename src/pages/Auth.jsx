@@ -10,7 +10,7 @@ function AuthLayout({ children }) {
       <div className="auth-side">
         <div className="copy">
           <h2>Shop local. <b>Pay with MoMo.</b> Get it delivered.</h2>
-          <p style={{ color: '#d3e3da' }}>Shop fashion, electronics, home, groceries and Rwandan crafts. Pay with Mobile Money or cash on delivery.</p>
+          <p style={{ color: '#e8d8c4' }}>Shop fashion, electronics, home, groceries and Rwandan crafts. Pay with Mobile Money or cash on delivery.</p>
         </div>
         <img src="/img/fashion.webp" alt="" />
       </div>
