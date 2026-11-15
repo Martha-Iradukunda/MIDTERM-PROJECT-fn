@@ -7,8 +7,8 @@
   --amber: #f90;
   --amber-dark: #d98000;
   --amber-soft: #fff3df;
-  --brown: #372516;
-  --brown-2: #4a3220;
+  --brown: #8b5a2b;
+  --brown-2: #7a4c25;
   --cream: #faf7f2;
   --bg: #fff;
   --soft: #f5f3ef;
@@ -171,7 +171,7 @@ input[type='checkbox'], input[type='radio'] { width: 18px; height: 18px; min-hei
 .notif .dot.read { background: transparent; }
 
 /* ---------- hero: original brown banner, photo in an arch with floating products ---------- */
-.hero { background: linear-gradient(135deg, var(--brown) 0%, var(--brand-2) 100%); color: #fff; overflow: hidden; position: relative; }
+.hero { background: linear-gradient(135deg, var(--brown) 0%, var(--brown-2) 100%); color: #fff; overflow: hidden; position: relative; }
 .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 78% 40%, rgb(255 153 0 / 22%), transparent 55%); pointer-events: none; }
 .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 32px; position: relative; }
 .hero .text { padding-block: clamp(44px, 7vw, 88px); }
