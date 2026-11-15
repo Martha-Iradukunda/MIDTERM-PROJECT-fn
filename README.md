@@ -60,7 +60,7 @@ npm run dev        # http://localhost:5173 (talks to the server on :5000)
 The original project images are kept in `public/img`:
 - `fashion.png`: the hero model
 - `landing.jpg` and `landing.jpeg`: the promotional banners
-- `logo.png` and `Frame.png`: the logo
+- `logo.png` and `Frame.png`: the Rwamagana Mall logo (the cart with an "R"); the original "B" logo is kept as `logo-original.png` and `Frame-original.png`
 - `empty.png`, `profile.jpeg` and `google-logo.png`: empty screens, default avatar and the Google button
 - `payment-failed.jpg` (the red cross) and `email-check.png` (envelope with tick)
 
