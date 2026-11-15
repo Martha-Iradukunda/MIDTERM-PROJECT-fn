@@ -63,7 +63,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-art">
-            <div className="arch"><img src="/img/hero-photo.webp" alt="Smiling woman in a green blazer, welcoming you to Rwamagana Mall" width="800" height="1000" fetchpriority="high" /></div>
+            <div className="arch"><img src="/img/fashion.webp" alt="Woman in a classic beige suit and sunglasses" width="420" height="520" fetchpriority="high" /></div>
             <div className="seal"><div><span>MoMo</span>accepted</div></div>
             {hero[0] && <Link to={`/product/${hero[0].id}`} className="float f1"><img src={hero[0].images[0]} alt="" /><span>{hero[0].name}<b>{rwf(hero[0].price)}</b></span></Link>}
             {hero[1] && <Link to={`/product/${hero[1].id}`} className="float f2"><img src={hero[1].images[0]} alt="" /><span>{hero[1].name}<b>{rwf(hero[1].price)}</b></span></Link>}

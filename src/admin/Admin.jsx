@@ -15,13 +15,24 @@ function useQueryState() {
   return [params, set, setParams];
 }
 
+const greeting = () => { const h = new Date().getHours(); return h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'; };
+const firstName = (u) => { const n = (u?.username || '').trim(); return !n || /admin/i.test(n) ? 'Martha' : n.split(' ')[0]; };
+
 function Dashboard() {
   useTitle('Admin dashboard');
+  const { user } = useApp();
   return (
     <StatsView admin>
       {(s) => (
         <>
-          <div className="dash-head"><div><h1>Dashboard</h1><p className="muted mb-0">Everything happening at Rwamagana Mall.</p></div><Link to="/seller/products/new" className="btn">Add a product</Link></div>
+          <div className="welcome">
+            <img src="/img/admin-photo.webp" alt="Rwamagana Mall owner" width="96" height="96" />
+            <div className="grow">
+              <h1>{greeting()}, {firstName(user)}</h1>
+              <p>Here is everything happening at Rwamagana Mall today.</p>
+            </div>
+            <Link to="/seller/products/new" className="btn">Add a product</Link>
+          </div>
           <div className="stats">
             <Link to="/admin/orders?payment=submitted" className={`stat ${s.todo.payments_to_confirm ? 'alert' : ''}`}><span className="k"><FiCheck /> Payments to confirm</span><span className="v">{s.todo.payments_to_confirm}</span></Link>
             <Link to="/admin/orders?status=Pending" className={`stat ${s.todo.pending ? 'alert' : ''}`}><span className="k"><FiShoppingBag /> New orders</span><span className="v">{s.todo.pending}</span><span className="tiny muted">{s.todo.in_progress} in progress</span></Link>
