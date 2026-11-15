@@ -302,8 +302,8 @@ input[type='checkbox'], input[type='radio'] { width: 18px; height: 18px; min-hei
 .reviews-layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 32px; align-items: start; }
 .dist { display: grid; gap: 8px; }
 .dist .line { display: grid; grid-template-columns: 34px 1fr 30px; gap: 8px; align-items: center; font-size: .9rem; }
-.bar { height: 9px; border-radius: 9px; background: var(--soft); overflow: hidden; }
-.bar > i { display: block; height: 100%; background: var(--amber); border-radius: 9px; }
+.meter { height: 9px; border-radius: 9px; background: var(--soft); overflow: hidden; }
+.meter > i { display: block; height: 100%; background: var(--amber); border-radius: 9px; }
 .review { border-bottom: 1px solid var(--line); padding-block: 16px; }
 .review:last-child { border-bottom: 0; }
 .star-input { display: flex; gap: 4px; }
@@ -495,6 +495,9 @@ table.table { width: 100%; border-collapse: collapse; font-size: .95rem; }
   .pcard .name { font-size: .95rem; }
   .price { font-size: .98rem; }
   .pcard .add { width: 36px; height: 36px; }
+  .pcard .foot { align-items: flex-end; }
+  .pcard .price { white-space: normal; min-width: 0; }
+  .pcard .price .old { display: block; margin-left: 0; }
   .features { grid-template-columns: 1fr; }
   .site-footer .cols { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }

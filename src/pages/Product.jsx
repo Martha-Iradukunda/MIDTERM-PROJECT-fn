@@ -41,7 +41,7 @@ function Reviews({ product, myReview, canReview, onChange }) {
         <div className="row gap"><span style={{ fontSize: '2.6rem', fontWeight: 800, lineHeight: 1 }}>{data.average || '–'}</span><div><Stars value={data.average} size={18} /><div className="small muted">{data.total} review{data.total === 1 ? '' : 's'}</div></div></div>
         <div className="dist mt">
           {[5, 4, 3, 2, 1].map((s) => (
-            <div className="line" key={s}><span>{s} <FiStar size={12} fill="currentColor" className="amber" /></span><span className="bar"><i style={{ width: `${data.total ? (data.counts[s] / data.total) * 100 : 0}%` }} /></span><span className="muted small">{data.counts[s] || 0}</span></div>
+            <div className="line" key={s}><span>{s} <FiStar size={12} fill="currentColor" className="amber" /></span><span className="meter"><i style={{ width: `${data.total ? (data.counts[s] / data.total) * 100 : 0}%` }} /></span><span className="muted small">{data.counts[s] || 0}</span></div>
           ))}
         </div>
         {!user && <p className="small muted mt mb-0"><Link to={`/login?next=/product/${product.id}`} className="link">Log in</Link> to review products you bought.</p>}
