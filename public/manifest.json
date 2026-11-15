@@ -1,19 +1,11 @@
 {
-  "short_name": "e-comm-team-brogrammers-fn",
-  "name": "E-Commercy Brogrammers Mall",
+  "short_name": "Rwamagana Mall",
+  "name": "Rwamagana Mall",
   "icons": [
-    {
-      "src": "Frame.png",
-      "type": "image/png",
-      "sizes": "66x44"
-    },
-    {
-      "src": "logo.png",
-      "type": "image/png",
-      "sizes": "800x800"
-    }
+    { "src": "/img/Frame.png", "type": "image/png", "sizes": "66x44" },
+    { "src": "/img/logo.png", "type": "image/png", "sizes": "800x800" }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#111111",
   "background_color": "#ffffff"

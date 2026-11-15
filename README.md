@@ -1,92 +1,71 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/atlp-rwanda/e-comm-team-brogrammers-fn/tree/develop.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/atlp-rwanda/e-comm-team-brogrammers-fn/tree/develop) 
-[![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/e-comm-team-brogrammers-fn/badge.svg?branch=develop)](https://coveralls.io/github/atlp-rwanda/e-comm-team-brogrammers-fn?branch=develop) 
-[![Maintainability](https://api.codeclimate.com/v1/badges/1f3302ee847d20b399be/maintainability)](https://codeclimate.com/github/atlp-rwanda/e-comm-team-brogrammers-fn/maintainability)
+# Rwamagana Mall: the shop
 
-# E-Commerce Brogrammers Mall
+Online shop for Rwamagana and the whole of Rwanda: fashion, shoes & bags, electronics, home & kitchen, groceries, beauty and Rwandan crafts.
 
-To access BrogrammersMall deployed application, visit https://brogrammersmall.netlify.app/
+**Live:** https://brogrammersmall.netlify.app
 
-E-Commercy Brogrammers Mall is an e-commerce web application built using [ReactJS](https://react.dev/) and [Redux](https://redux.js.org/). The project is being developed by a Fall team, which means it is expected to be completed by the end of the Fall semester.
+This repository is the shop that customers see (React 18 + Vite). The server and database code is in [MIDTERM-PROJECT-bn](https://github.com/Martha-Iradukunda/MIDTERM-PROJECT-bn). Netlify builds both into one website.
 
-The goal of the project is to create a fully functional online mall where users can browse and purchase a wide variety of products. The mall will have multiple stores, each selling different types of products, such as clothing, electronics, and home goods. Users will be able to create accounts, add items to their shopping cart, and make payments securely through the site.
+## What customers can do
 
-The E-Commercy Brogrammers Mall project will use [ReactJS](https://react.dev/) and [Redux](https://redux.js.org/) to create a responsive and user-friendly interface. ReactJS will allow for efficient rendering of the interface, while Redux will be used to manage the state of the application. The team will also use other technologies such as HTML, CSS, and JavaScript to build the application.
+- Browse and search products, filter by category, price, stock and deals, and sort them
+- See product photos, stock, seller, reviews and similar products
+- Use a cart (it works before logging in too) and a wishlist
+- Check out with delivery to any district of Rwanda. The delivery fee is shown before paying.
+- Pay with **MTN MoMo**, **Airtel Money** or **cash on delivery**, plus card when Stripe is connected
+- Follow orders with a progress tracker and history, and cancel while an order is still pending
+- Get notifications, chat with the shop, and write reviews after buying
+- Manage their profile and photo, change their password, use 2-step login (when email is connected), and ask to become a seller
 
-The team will follow Agile development practices, with regular sprints and stand-up meetings to track progress and ensure that the project stays on schedule. The team will also use version control software such as Git to manage code changes and collaborate effectively.
+## Sellers and admins
 
-Overall, the E-Commercy Brogrammers Mall project aims to create a robust and scalable e-commerce platform that provides a seamless shopping experience for users.
+- **Sellers:** a dashboard with sales charts, best sellers and low-stock alerts; add or edit products with photos; show or hide products; see the items they sold.
+- **Admins:**
+  - Orders: confirm Mobile Money payments, update delivery status, cancel orders
+  - Users: roles, seller approvals, disabling accounts, temporary passwords
+  - Products and categories
+  - Customer chat inbox, contact messages and newsletter
+  - Activity log
+  - Shop settings: Mobile Money numbers, delivery fees, phone number and announcement bar
 
-## Authors
+## How it is hosted (Netlify)
 
-- Jonathan NSHUTI, Project Manager
-- Jessie Umuhire UMUTESI, Team Leader
-- Benjamin CYUBAHIRO, developer
-- Benn Dalton Dushimimana IRADUKUNDA, developer
-- Edwin Nambaje, developer
-- Ernest KWIZERA, developer
-- Martha IRADUKUNDA, developer
-- Patience INEZA, developer
-- Olivie HABIHIRWE, developer
-- Valantin ISHIMWE, developer
+`netlify.toml` tells Netlify to:
 
-## Acknowledgments:
+1. build the shop (`npm run build`, published from `dist/`);
+2. run `netlify-build.sh`, which downloads the server from MIDTERM-PROJECT-bn (branch `all-setup-features`);
+3. run that server as a Netlify Function and send `/api/*`, `/media/*` and `/api-docs` to it.
 
-We would like to thank our instructor for providing us with guidance and support throughout the project. We would also like to thank our teammates for their feedback and encouragement. Additionally, we would like to thank the open-source community for providing us with valuable resources and libraries to aid in the development of this project. Finally, we would like to thank our families and loved ones for their patience and understanding during our long hours of work on this project.
+Netlify settings (Site configuration › Environment variables):
 
-## Installation and run commands
+| Name | What |
+|---|---|
+| `DATABASE_URL` | Neon Postgres connection string |
+| `ADMIN_EMAIL`, `ADMIN_PASSWORD` | the owner's admin login (setting a new password resets it once) |
+| `PUBLIC_URL` | `https://brogrammersmall.netlify.app` (used in email links) |
 
-Once you have this project in your computer,\
-you need to follow the next steps to install and run it.
+A change to the server repo goes live at the next Netlify deploy. Push to this repo, or use "Trigger deploy" in Netlify.
 
-### installing dependencies
+## Run it on your computer
 
-```sh
+```bash
+# 1. the server (see MIDTERM-PROJECT-bn), on http://localhost:5000
+# 2. the shop:
 npm install
+npm run dev        # http://localhost:5173 (talks to the server on :5000)
 ```
 
-Run this command to install all dependencies in this project.\
-the main dependencies to run this project are
+## Images
 
-- react
-- react-dom
-- react-scripts
-- redux
+The original project images are kept in `public/img`:
+- `fashion.png`: the hero model
+- `landing.jpg` and `landing.jpeg`: the promotional banners
+- `logo.png` and `Frame.png`: the logo
+- `empty.png`, `profile.jpeg` and `google-logo.png`: empty screens, default avatar and the Google button
+- `payment-failed.jpg` (the red cross) and `email-check.png` (envelope with tick)
 
-### Available Scripts
+The `.webp` files are faster copies of the same pictures.
 
-In the project directory, you can run:
+The starting product photos in `public/catalogue` come from Wikimedia Commons under free licences. Their authors are listed on the [Photo credits](https://brogrammersmall.netlify.app/credits) page.
 
-#### Start the project
-
-```sh
-npm start
-```
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-#### Build
-
-```sh
-npm run build
-```
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://create-react-app.dev/docs/production-build/) for more information.
-
-#### Testing
-
-```sh
-npm test
-```
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://create-react-app.dev/docs/running-tests) for more information.
+© Rwamagana Mall · Powered by Martha Iradukunda
