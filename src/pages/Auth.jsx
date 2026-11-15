@@ -9,8 +9,8 @@ function AuthLayout({ children }) {
     <div className="auth-page">
       <div className="auth-side">
         <div className="copy">
-          <h2>We bring you the best of the <b>best Classic Fashion</b>. First trusted website.</h2>
-          <p style={{ color: '#e8d8c4' }}>Shop fashion, electronics, home, groceries and Rwandan crafts. Pay with Mobile Money or cash on delivery.</p>
+          <h2>Shop local. <b>Pay with MoMo.</b> Get it delivered.</h2>
+          <p style={{ color: '#d3e3da' }}>Shop fashion, electronics, home, groceries and Rwandan crafts. Pay with Mobile Money or cash on delivery.</p>
         </div>
         <img src="/img/fashion.webp" alt="" />
       </div>
@@ -139,7 +139,7 @@ export function Signup() {
   }
   return (
     <AuthLayout>
-      <div><h1 className="mb-0">Join for free</h1><p className="muted mb-0">Create your Rwamagana Mall account in less than a minute.</p></div>
+      <div><h1 className="mb-0">Create your account</h1><p className="muted mb-0">Create your Rwamagana Mall account in less than a minute.</p></div>
       <GoogleButton />
       <form className="stack" onSubmit={submit}>
         <label className="field">Full name<input value={f.username} onChange={(e) => setF({ ...f, username: e.target.value })} required minLength={2} autoComplete="name" /></label>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiTruck, FiSmartphone, FiShield, FiMessageCircle, FiArrowRight, FiCheckCircle } from 'react-icons/fi';
-import { api } from '../api.js';
+import { api, rwf } from '../api.js';
 import { useApp } from '../state/app.jsx';
 import { ProductGrid, CategoryIcon, useTitle } from '../components/ui.jsx';
 
@@ -24,7 +24,7 @@ export function NewsletterForm() {
       <input placeholder="First name" value={f.firstName} onChange={(e) => setF({ ...f, firstName: e.target.value })} aria-label="First name" />
       <input placeholder="Last name" value={f.lastName} onChange={(e) => setF({ ...f, lastName: e.target.value })} aria-label="Last name" />
       <input type="email" required placeholder="Email" value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} aria-label="Email" />
-      <button type="submit" className="btn dark" disabled={busy}>Subscribe To Our News letter</button>
+      <button type="submit" className="btn dark" disabled={busy}>Subscribe</button>
     </form>
   );
 }
@@ -35,11 +35,13 @@ export default function Home() {
   const [popular, setPopular] = useState(null);
   const [deals, setDeals] = useState(null);
   const [cats, setCats] = useState([]);
+  const [hero, setHero] = useState([]);
   useEffect(() => {
     api('/products?limit=8&sort=new').then((r) => setRecent(r.items)).catch(() => setRecent([]));
     api('/products?limit=4&sort=popular').then((r) => setPopular(r.items)).catch(() => setPopular([]));
     api('/products?limit=4&deals=1&sort=popular').then((r) => setDeals(r.items)).catch(() => setDeals([]));
     api('/categories').then(setCats).catch(() => {});
+    api('/products?limit=12&featured=1&sort=popular').then((r) => setHero(r.items.filter((p) => /crafts|groceries/.test(p.category_slug)).slice(0, 2))).catch(() => {});
   }, []);
 
   return (
@@ -47,11 +49,12 @@ export default function Home() {
       <section className="hero">
         <div className="wrap">
           <div className="text">
-            <h1>We bring you the best of the <b>best Classic Fashion</b>. First trusted website.</h1>
-            <p className="lead">Fashion, electronics, home, groceries, beauty and Rwandan crafts, delivered in Rwamagana and across Rwanda.</p>
+            <span className="hero-tag"><i /> Rwamagana&apos;s online mall</span>
+            <h1>Everything you love, <b>delivered to your door</b> anywhere in Rwanda.</h1>
+            <p className="lead">Fashion, electronics, home essentials, fresh groceries and handmade Rwandan crafts from local sellers you can trust. Pay with MTN MoMo, Airtel Money or cash when it arrives.</p>
             <div className="row gap">
-              <Link to="/products" className="btn lg">View More</Link>
-              <Link to="/signup" className="btn lg outline">Join for free</Link>
+              <Link to="/products" className="btn lg">Start shopping</Link>
+              <Link to="/signup" className="btn lg outline">Create a free account</Link>
             </div>
             <div className="chips">
               <span><FiCheckCircle /> Pay with MoMo or cash</span>
@@ -59,7 +62,12 @@ export default function Home() {
               <span><FiCheckCircle /> Real people on chat</span>
             </div>
           </div>
-          <img className="model" src="/img/fashion.webp" alt="Woman in a classic beige suit and sunglasses" width="420" height="520" fetchpriority="high" />
+          <div className="hero-art">
+            <div className="arch"><img src="/img/fashion.webp" alt="Woman in a classic beige suit and sunglasses" width="420" height="520" fetchpriority="high" /></div>
+            <div className="seal"><div><span>MoMo</span>accepted</div></div>
+            {hero[0] && <Link to={`/product/${hero[0].id}`} className="float f1"><img src={hero[0].images[0]} alt="" /><span>{hero[0].name}<b>{rwf(hero[0].price)}</b></span></Link>}
+            {hero[1] && <Link to={`/product/${hero[1].id}`} className="float f2"><img src={hero[1].images[0]} alt="" /><span>{hero[1].name}<b>{rwf(hero[1].price)}</b></span></Link>}
+          </div>
         </div>
       </section>
 
@@ -91,7 +99,7 @@ export default function Home() {
 
       <section className="section">
         <div className="wrap">
-          <div className="row between mb"><h2 className="mb-0">Recent items</h2><Link to="/products?sort=new" className="link">See all <FiArrowRight style={{ verticalAlign: 'middle' }} /></Link></div>
+          <div className="row between mb"><h2 className="mb-0">New arrivals</h2><Link to="/products?sort=new" className="link">See all <FiArrowRight style={{ verticalAlign: 'middle' }} /></Link></div>
           <ProductGrid items={recent} loading={!recent} count={8} />
         </div>
       </section>
@@ -127,8 +135,8 @@ export default function Home() {
 
       <section className="section newsletter">
         <div className="wrap">
-          <h2>HEAR FROM US.</h2>
-          <p className="muted">New arrivals, deals and news from Rwamagana Mall, straight to your inbox.</p>
+          <h2>Stay in the loop</h2>
+          <p className="muted">Be the first to know about new arrivals, weekly deals and local makers. One short email, no spam.</p>
           <NewsletterForm />
         </div>
       </section>

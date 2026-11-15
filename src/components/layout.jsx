@@ -182,7 +182,7 @@ export function Footer() {
       <div className="wrap cols">
         <div>
           <Link to="/" className="brand" style={{ color: '#fff' }}><img src="/img/logo.png" alt="" width="44" height="44" /><span><span className="r">R</span>wamagana Mall</span></Link>
-          <p className="small" style={{ marginTop: 14 }}>{config?.tagline || 'We bring you the best of the best Classic Fashion. First trusted website.'}</p>
+          <p className="small" style={{ marginTop: 14 }}>{config?.tagline || 'Your online mall in Rwamagana: shop local, pay with MoMo, get it delivered.'}</p>
           <div className="socials">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>

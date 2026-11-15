@@ -365,7 +365,7 @@ function Subscribers() {
         <div><button type="submit" className="btn" disabled={busy || !data.mail}><FiSend /> Send to subscribers</button></div>
       </form>
       {data.newsletters?.length > 0 && <div className="card"><h3>Sent</h3>{data.newsletters.map((n) => <div key={n.id} className="row between small" style={{ padding: '6px 0', borderTop: '1px solid var(--line)' }}><b>{n.subject}</b><span className="muted">{n.sent_to} people · {dateOf(n.created_at)}</span></div>)}</div>}
-      {data.items.length === 0 ? <Empty title="No subscribers yet" text="People join from the “HEAR FROM US.” form on the home page." /> : (
+      {data.items.length === 0 ? <Empty title="No subscribers yet" text="People join from the “Stay in the loop” form on the home page." /> : (
         <div className="table-wrap">
           <table className="table">
             <thead><tr><th>Email</th><th>Name</th><th>Status</th><th>Joined</th><th /></tr></thead>

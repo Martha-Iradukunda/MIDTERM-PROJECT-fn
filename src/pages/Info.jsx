@@ -22,7 +22,7 @@ export function About() {
         <div className="promo" style={{ minHeight: 260 }}><img src="/img/landing-phone.webp" alt="" /><div className="in"><h3>Shopping made simple</h3></div></div>
         <div className="promo" style={{ minHeight: 260 }}><img src="/img/landing-fresh.webp" alt="" /><div className="in"><h3>Fresh and local</h3></div></div>
       </div>
-      <p className="lead" style={{ fontSize: '1.15rem' }}>Rwamagana Mall is an online shop for the people of Rwamagana and the whole of Rwanda. We bring you the best of the best Classic Fashion, together with electronics, home and kitchen goods, groceries, beauty products and crafts made by Rwandan artisans.</p>
+      <p className="lead" style={{ fontSize: '1.15rem' }}>Rwamagana Mall is an online shop for the people of Rwamagana and the whole of Rwanda. We offer classic and modern fashion, together with electronics, home and kitchen goods, groceries, beauty products and crafts made by Rwandan artisans.</p>
       <p>We started as a team project to make shopping easier for families who do not have time to go from shop to shop. Today, local sellers list their products with us, and customers order from their phone and pay the way they already pay every day: MTN MoMo, Airtel Money or cash on delivery.</p>
       <h2 className="mt-lg">What we promise</h2>
       <div className="features" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
